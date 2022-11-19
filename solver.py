@@ -17,9 +17,19 @@ def isPossible(x, y, n) :
     for j in range(9) :
         if (grid[y][j] == n) :
             return False
+
+    # Check 3x3 box
+    x_2 = (x//3)*3
+    y_2 = (y//3)*3
+
+    for i in range(9) :
+        for j in range(9) :
+            if (grid[i][x_2] == n) :
+                if (grid[y_2][j] == n) :
+                    return False
     return True
 
 for i in range(9) :
     print(grid[i])
 
-print(isPossible(0, 2, 7))
+print(isPossible(7, 7, 3))
